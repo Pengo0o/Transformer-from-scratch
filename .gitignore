@@ -1,0 +1,7 @@
+dataset/test
+dataset/validation
+dataset/train
+dataset/dataset_dict.json
+__pycache__/
+results/tensorboard
+results/best_model.pt

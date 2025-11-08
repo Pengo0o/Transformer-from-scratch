@@ -1,0 +1,56 @@
+# 数据配置
+data:
+  dataset_path: '/opt/data/private/hyp/home_work/dataset'
+  max_vocab_size: 50000
+  src_max_len: 512
+  tgt_max_len: 150
+
+# 模型配置
+model:
+  d_model: 512
+  num_heads: 8
+  num_layers: 4
+  d_ff: 2048
+  max_len: 512
+  dropout: 0.1
+
+# 训练配置
+train:
+  batch_size: 16
+  num_epochs: 10
+  learning_rate: 0.0001
+  warmup_steps: 4000
+  gradient_clip: 1.0
+  label_smoothing: 0.1
+  betas: [0.9, 0.98]
+  eps: 1.0e-9
+  num_workers: 0
+  save_dir: 'results'
+  save_freq: 10  
+  print_freq: 100 
+
+# 测试/推理配置
+test:
+  batch_size: 16
+  checkpoint: 'results/best_model.pt'
+  max_generate_len: 150
+  beam_width: 5
+  decode_method: 'greedy'  
+  num_test_samples: null  
+
+# 评估配置
+evaluate:
+  num_samples: 1000  
+  show_examples: 5  
+
+# 设备配置
+device: 'cuda'  
+
+# 随机种子
+seed: 42
+
+# 日志配置
+logging:
+  log_file: 'results/training.log'
+  log_level: 'INFO'
+

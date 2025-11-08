@@ -1,0 +1,42 @@
+data:
+  dataset_path: /opt/data/private/hyp/home_work/dataset
+  max_vocab_size: 50000
+  src_max_len: 512
+  tgt_max_len: 150
+device: cuda
+evaluate:
+  num_samples: 1000
+  show_examples: 5
+logging:
+  log_file: results/training.log
+  log_level: INFO
+model:
+  d_ff: 2048
+  d_model: 512
+  dropout: 0.1
+  max_len: 512
+  num_heads: 8
+  num_layers: 4
+seed: 42
+test:
+  batch_size: 16
+  beam_width: 5
+  checkpoint: results/best_model.pt
+  decode_method: greedy
+  max_generate_len: 150
+  num_test_samples: null
+train:
+  batch_size: 16
+  betas:
+  - 0.9
+  - 0.98
+  eps: 1.0e-09
+  gradient_clip: 1.0
+  label_smoothing: 0.1
+  learning_rate: 0.0001
+  num_epochs: 10
+  num_workers: 0
+  print_freq: 100
+  save_dir: results
+  save_freq: 10
+  warmup_steps: 4000
