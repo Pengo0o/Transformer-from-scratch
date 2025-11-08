@@ -189,7 +189,7 @@ def test_mode(args, config, logger):
     )
     
     num_samples = args.num_samples or config['test']['num_test_samples']
-    results = tester.test(num_samples=num_samples, show_examples=args.show_examples)
+    results = tester.test(num_samples=num_samples)
     
     if args.evaluate:
         tester.evaluate_with_rouge()
@@ -220,6 +220,8 @@ def main():
                         help='Perform ROUGE evaluation (test mode only)')
     parser.add_argument('--save_results', action='store_true',
                         help='Save test results (test mode only)')
+    parser.add_argument('--num_samples', type=int, default=1000,
+                        help='Number of samples to test (test mode only)')
     
     args = parser.parse_args()
     

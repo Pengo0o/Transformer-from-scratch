@@ -82,8 +82,7 @@ class CNNDailyMailDataset(Dataset):
         return indices
     
     def __len__(self):
-        return 15
-        # return len(self.data)
+        return len(self.data)
     
     def __getitem__(self, idx):
         item = self.data[idx]
